@@ -1,22 +1,45 @@
 <div class="container">
+
   <div class="row">
 
-    <div class="col border">
+    <div class="col">
+
       <h1>Choose meals</h1>
-      <div class="row my-3 vertical-align" *ngFor="let meal of meals">
+
+      <div class="row my-1 vertical-align" *ngFor="let meal of meals">
         <div class="col">{{ meal }}</div>
-        <div class="col-4"><button type="button" class="btn btn-link btn-lg">></button></div>
+        <div class="col-4"><button type="button" class="btn btn-link btn-lg py-0">></button></div>
       </div>
+
     </div>
 
-    <div class="col border">
+    <div class="col">
+
       <h1>What else?</h1>
+
+      <form>
+        <div class="form-group my-3">
+          <input class="form-control" placeholder="Enter shopping item and hit ENTER">
+        </div>
+      </form>
+
+      <h3 class="mt-5 mb-3">Previously added:</h3>
+
+      <div class="row my-0 vertical-align" *ngFor="let item of previous">
+        <div class="col">{{ item }}</div>
+        <div class="col-4"><button type="button" class="btn btn-link btn-lg py-0">></button></div>
+      </div>
+
     </div>
 
-    <div class="col border">
+    <div class="col bg-info text-white">
+
       <h1>Shopping list</h1>
+
       Choose meals or add anything else you need!
+
     </div>
 
   </div>
+
 </div>
