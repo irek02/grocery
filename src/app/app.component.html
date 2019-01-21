@@ -1,14 +1,22 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1>Welcome</h1>
-    <h2>Angular & Bootstrap Demo</h2>
-  </div>
-  <div class="panel panel-primary">
-    <div class="panel-heading">Status</div>
-    <div class="panel-body">
-      <h3>{{title}}</h3>
-    </div>
-  </div>
-  <div class="alert alert-primary">Alert!</div>
-</div>
+  <div class="row">
 
+    <div class="col border">
+      <h1>Choose meals</h1>
+      <div class="row my-3 vertical-align" *ngFor="let meal of meals">
+        <div class="col">{{ meal }}</div>
+        <div class="col-4"><button type="button" class="btn btn-link btn-lg">></button></div>
+      </div>
+    </div>
+
+    <div class="col border">
+      <h1>What else?</h1>
+    </div>
+
+    <div class="col border">
+      <h1>Shopping list</h1>
+      Choose meals or add anything else you need!
+    </div>
+
+  </div>
+</div>

@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  meals = [
+    'Argentine chimichuri steak',
+    'Balsamic fig chicken',
+    'Chicken piccata',
+    'Creamy chicken tortellini',
+    'Moroccan chicken',
+    'Pesto chicken',
+  ];
 }
