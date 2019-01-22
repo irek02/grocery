@@ -1,21 +1,24 @@
 <div class="container">
 
+  <button type="button" class="btn btn-link btn-lg pl-0" (click)="state = 'meals'">Meals</button>
+  |
+  <button type="button" class="btn btn-link btn-lg" (click)="state = 'rest'">Rest</button>
+
   <div class="row">
 
-    <div class="col">
+    <div *ngIf="state === 'meals'" class="col">
 
       <h1>Choose meals</h1>
 
-      <div class="row my-1 vertical-align" *ngFor="let meal of meals">
-        <div class="col">{{ meal }}</div>
-        <div class="col-4"><button type="button" class="btn btn-link btn-lg py-0">></button></div>
+      <div class="my-1 vertical-align" *ngFor="let meal of meals">
+        {{ meal }} <button type="button" class="btn btn-link btn-lg py-0">></button>
       </div>
 
     </div>
 
-    <div class="col">
+    <div *ngIf="state === 'rest'" class="col">
 
-      <h1>What else?</h1>
+      <h1 class="mb-3">What else?</h1>
 
       <form>
         <div class="form-group my-3">
@@ -25,14 +28,13 @@
 
       <h3 class="mt-5 mb-3">Previously added:</h3>
 
-      <div class="row my-0 vertical-align" *ngFor="let item of previous">
-        <div class="col">{{ item }}</div>
-        <div class="col-4"><button type="button" class="btn btn-link btn-lg py-0">></button></div>
+      <div class="my-0 vertical-align" *ngFor="let item of previous">
+        {{ item }} <button type="button" class="btn btn-link btn-lg py-0">></button>
       </div>
 
     </div>
 
-    <div class="col bg-info text-white">
+    <div class="col">
 
       <h1>Shopping list</h1>
 
