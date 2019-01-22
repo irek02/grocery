@@ -10,12 +10,25 @@ export class AppComponent {
   state = 'meals';
 
   meals = [
-    'Argentine chimichuri steak',
-    'Balsamic fig chicken',
-    'Chicken piccata',
-    'Creamy chicken tortellini',
-    'Moroccan chicken',
-    'Pesto chicken',
+    {
+      name: 'Argentine chimichuri steak',
+      ingredients: [
+        'lime',
+        'grape tomatoes',
+        'sweet potatoes',
+        'poblano pepper',
+        'cilantro',
+        'shallot',
+        'jelapeno',
+        'steak',
+        'kale',
+      ]
+    },
+    { name: 'Balsamic fig chicken', ingredients: [] },
+    { name: 'Chicken piccata', ingredients: [] },
+    { name: 'Creamy chicken tortellini', ingredients: [] },
+    { name: 'Moroccan chicken', ingredients: [] },
+    { name: 'Pesto chicken', ingredients: [] },
   ];
 
   previous = [
@@ -49,4 +62,28 @@ export class AppComponent {
     'Sausage',
     'Shampoo',
   ];
+
+  list = [];
+
+  addItems(items) {
+
+    items.map(item => this.list.push(item));
+
+    this.list = this.list.sort();
+
+  }
+
+  copyList(list: []) {
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = list.join('\n');
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+  }
 }

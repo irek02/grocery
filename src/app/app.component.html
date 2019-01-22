@@ -11,7 +11,7 @@
       <h1>Choose meals</h1>
 
       <div class="my-1 vertical-align" *ngFor="let meal of meals">
-        {{ meal }} <button type="button" class="btn btn-link btn-lg py-0">></button>
+        {{ meal.name }} <button (click)="addItems(meal.ingredients)" type="button" class="btn btn-link btn-lg py-0">></button>
       </div>
 
     </div>
@@ -20,11 +20,9 @@
 
       <h1 class="mb-3">What else?</h1>
 
-      <form>
-        <div class="form-group my-3">
-          <input class="form-control" placeholder="Enter shopping item and hit ENTER">
-        </div>
-      </form>
+      <div class="form-group my-3">
+        <input class="form-control" placeholder="Enter shopping item and hit ENTER">
+      </div>
 
       <h3 class="mt-5 mb-3">Previously added:</h3>
 
@@ -38,7 +36,11 @@
 
       <h1>Shopping list</h1>
 
-      Choose meals or add anything else you need!
+      <button (click)="copyList(list)" value="click to copy">Copy this</button>
+
+      <div class="my-0 vertical-align" *ngFor="let item of list">
+        {{ item }} <button type="button" class="btn btn-link btn-lg py-0">x</button>
+      </div>
 
     </div>
 
