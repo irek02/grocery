@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatCheckboxChange } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  state = 'meals';
 
   meals = [
     {
@@ -65,7 +64,30 @@ export class AppComponent {
 
   list = [];
 
-  addItems(items) {
+  constructor() {
+  }
+
+  selectMeal(e: MatCheckboxChange, index: number) {
+
+    if (e.checked) {
+      this.addItems(this.meals[index].ingredients);
+    } else {
+      this.removeItems(this.meals[index].ingredients);
+    }
+
+  }
+
+  selectItem(e: MatCheckboxChange, index: number) {
+
+    if (e.checked) {
+      this.addItems([this.previous[index]]);
+    } else {
+      this.removeItems([this.previous[index]]);
+    }
+
+  }
+
+  addItems(items: string[]) {
 
     items.map(item => this.list.push(item));
 
@@ -73,7 +95,20 @@ export class AppComponent {
 
   }
 
-  copyList(list: []) {
+  removeItems(items: string[]) {
+
+    items.map(item => {
+      const index = this.list.indexOf(item);
+      if (index > -1) {
+        this.list.splice(index, 1);
+      }
+    });
+
+    this.list = this.list.sort();
+
+  }
+
+  copyList(list) {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';

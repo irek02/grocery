@@ -1,33 +1,31 @@
 <div class="container">
 
-  <button type="button" class="btn btn-link btn-lg pl-0" (click)="state = 'meals'">Meals</button>
-  |
-  <button type="button" class="btn btn-link btn-lg" (click)="state = 'rest'">Rest</button>
-
   <div class="row">
 
-    <div *ngIf="state === 'meals'" class="col">
+    <div class="col">
 
-      <h1>Choose meals</h1>
+      <h1>Meals</h1>
 
-      <div class="my-1 vertical-align" *ngFor="let meal of meals">
-        {{ meal.name }} <button (click)="addItems(meal.ingredients)" type="button" class="btn btn-link btn-lg py-0">></button>
+      <div *ngFor="let meal of meals; let i = index">
+
+        <mat-checkbox (change)="selectMeal($event, i)">
+          {{ meals[i].name }}
+        </mat-checkbox>
+
       </div>
 
     </div>
 
-    <div *ngIf="state === 'rest'" class="col">
+    <div class="col">
 
-      <h1 class="mb-3">What else?</h1>
+      <h1 class="mb-3">Common items</h1>
 
-      <div class="form-group my-3">
-        <input class="form-control" placeholder="Enter shopping item and hit ENTER">
-      </div>
+      <div *ngFor="let item of previous; let i = index">
 
-      <h3 class="mt-5 mb-3">Previously added:</h3>
+        <mat-checkbox (change)="selectItem($event, i)">
+          {{ previous[i] }}
+        </mat-checkbox>
 
-      <div class="my-0 vertical-align" *ngFor="let item of previous">
-        {{ item }} <button type="button" class="btn btn-link btn-lg py-0">></button>
       </div>
 
     </div>
@@ -39,7 +37,8 @@
       <button (click)="copyList(list)" value="click to copy">Copy this</button>
 
       <div class="my-0 vertical-align" *ngFor="let item of list">
-        {{ item }} <button type="button" class="btn btn-link btn-lg py-0">x</button>
+        {{ item }}
+        <!-- <button type="button" class="btn btn-link btn-lg py-0">x</button> -->
       </div>
 
     </div>
