@@ -16,14 +16,6 @@
 
       <app-common-items [items]="previous" (selectItem)="selectItem($event)"></app-common-items>
 
-      <!-- <div *ngFor="let item of previous; let i = index">
-
-        <mat-checkbox (change)="selectItem($event, i)">
-          {{ previous[i] }}
-        </mat-checkbox>
-
-      </div> -->
-
     </div>
 
     <div class="col">
@@ -32,10 +24,7 @@
 
       <button (click)="copyList(list)" value="click to copy">Copy this</button>
 
-      <div class="my-0 vertical-align" *ngFor="let item of list">
-        {{ item }}
-        <!-- <button type="button" class="btn btn-link btn-lg py-0">x</button> -->
-      </div>
+      <app-shopping-list [items]="list"></app-shopping-list>
 
     </div>
 
