@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col">
+
+      <h1>Meals</h1>
+
+      <app-meals [meals]="meals" (selectMeal)="selectMeal($event)"></app-meals>
+<!--
+      <div *ngFor="let meal of meals; let i = index">
+
+        <mat-checkbox (change)="selectMeal($event, i)">
+          {{ meals[i].name }}
+        </mat-checkbox>
+
+      </div> -->
+
+    </div>
+
+    <div class="col">
+
+      <h1 class="mb-3">Common items</h1>
+
+      <div *ngFor="let item of previous; let i = index">
+
+        <mat-checkbox (change)="selectItem($event, i)">
+          {{ previous[i] }}
+        </mat-checkbox>
+
+      </div>
+
+    </div>
+
+    <div class="col">
+
+      <h1>Shopping list</h1>
+
+      <button (click)="copyList(list)" value="click to copy">Copy this</button>
+
+      <div class="my-0 vertical-align" *ngFor="let item of list">
+        {{ item }}
+        <!-- <button type="button" class="btn btn-link btn-lg py-0">x</button> -->
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

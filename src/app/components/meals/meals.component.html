@@ -1,0 +1,7 @@
+<div *ngFor="let meal of meals; let i = index">
+
+  <mat-checkbox (change)="selectMeal.emit({ event: $event, index: i })">
+    {{ meals[i].name }}
+  </mat-checkbox>
+
+</div>
