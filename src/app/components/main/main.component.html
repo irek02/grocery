@@ -7,14 +7,6 @@
       <h1>Meals</h1>
 
       <app-meals [meals]="meals" (selectMeal)="selectMeal($event)"></app-meals>
-<!--
-      <div *ngFor="let meal of meals; let i = index">
-
-        <mat-checkbox (change)="selectMeal($event, i)">
-          {{ meals[i].name }}
-        </mat-checkbox>
-
-      </div> -->
 
     </div>
 
@@ -22,13 +14,15 @@
 
       <h1 class="mb-3">Common items</h1>
 
-      <div *ngFor="let item of previous; let i = index">
+      <app-common-items [items]="previous" (selectItem)="selectItem($event)"></app-common-items>
+
+      <!-- <div *ngFor="let item of previous; let i = index">
 
         <mat-checkbox (change)="selectItem($event, i)">
           {{ previous[i] }}
         </mat-checkbox>
 
-      </div>
+      </div> -->
 
     </div>
 

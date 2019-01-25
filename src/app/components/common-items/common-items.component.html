@@ -1,3 +1,7 @@
-<p>
-  common-items works!
-</p>
+<div *ngFor="let item of items; let i = index">
+
+  <mat-checkbox (change)="selectItem.emit({ event: $event, index: i })">
+    {{ items[i] }}
+  </mat-checkbox>
+
+</div>

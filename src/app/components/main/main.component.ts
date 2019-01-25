@@ -77,12 +77,12 @@ export class MainComponent {
 
   }
 
-  selectItem(e: MatCheckboxChange, index: number) {
+  selectItem(e: { event: MatCheckboxChange, index: number }) {
 
-    if (e.checked) {
-      this.addItems([this.previous[index]]);
+    if (e.event.checked) {
+      this.addItems([this.previous[e.index]]);
     } else {
-      this.removeItems([this.previous[index]]);
+      this.removeItems([this.previous[e.index]]);
     }
 
   }
