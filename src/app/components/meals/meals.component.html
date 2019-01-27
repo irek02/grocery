@@ -1,7 +1,8 @@
-<div *ngFor="let meal of meals; let i = index">
+<div *ngFor="let meal of meals; let i = index" class="py-1 ml-4">
 
-  <mat-checkbox (change)="selectMeal.emit({ event: $event, index: i })">
+  <input (change)="selectMeal.emit({ event: $event, index: i })" type="checkbox" class="form-check-input" id="meal-{{ i }}">
+  <label class="form-check-label" for="meal-{{ i }}">
     {{ meals[i].name }}
-  </mat-checkbox>
+  </label>
 
 </div>

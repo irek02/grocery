@@ -67,9 +67,9 @@ export class MainComponent {
   constructor() {
   }
 
-  selectMeal(e: { event: MatCheckboxChange, index: number }) {
+  selectMeal(e: { event: any, index: number }) {
 
-    if (e.event.checked) {
+    if (e.event.target.checked) {
       this.addItems(this.meals[e.index].ingredients);
     } else {
       this.removeItems(this.meals[e.index].ingredients);
@@ -77,9 +77,9 @@ export class MainComponent {
 
   }
 
-  selectItem(e: { event: MatCheckboxChange, index: number }) {
+  selectItem(e: { event: any, index: number }) {
 
-    if (e.event.checked) {
+    if (e.event.target.checked) {
       this.addItems([this.previous[e.index]]);
     } else {
       this.removeItems([this.previous[e.index]]);

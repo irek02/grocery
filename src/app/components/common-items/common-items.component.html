@@ -1,7 +1,12 @@
-<div *ngFor="let item of items; let i = index">
+<div *ngFor="let item of items; let i = index" class="py-1 ml-4">
 
-  <mat-checkbox (change)="selectItem.emit({ event: $event, index: i })">
+  <!-- <mat-checkbox (change)="selectItem.emit({ event: $event, index: i })">
     {{ items[i] }}
-  </mat-checkbox>
+  </mat-checkbox> -->
+
+  <input (change)="selectItem.emit({ event: $event, index: i })" type="checkbox" class="form-check-input" id="common-item-{{ i }}">
+  <label class="form-check-label" for="common-item-{{ i }}">
+    {{ items[i] }}
+  </label>
 
 </div>
